@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semiu Musa Bello, PhD - Media & Health Communication Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+        }
+        
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .skill-card:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .skill-card:hover i {
+            color: white;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3b82f6;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            color: #f3f4f6;
+            font-family: Georgia, serif;
+        }
+        
+        .search-bar {
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus {
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .counter {
+                font-size: 2rem;
+            }
+            
+            .search-bar:focus {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-900 to-blue-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">SMB</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Dr. Semiu Musa Bello</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 font-medium">My key skills</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                    <input type="search" placeholder="Search..." class="search-bar px-4 py-2 border border-gray-300 rounded-full focus:outline-none w-40">
+                </div>
+                
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="hidden md:hidden mt-4" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 font-medium">My key skills</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                    <input type="search" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-full focus:outline-none">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white py-32">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <p class="text-xl md:text-2xl mb-8 text-blue-100">Seasoned Media & Health <br> Communication Researcher and Consultant</p>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Semiu Musa Bello, PhD</h1>
+                    <p class="text-sm md:text-xl mb-8 text-blue-100">Communicator, Researcher, Corporate strategist,<br>
+Administrator, Mentor & Community Advocate
+
+ 
+</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="http://semiubello.com/SemiuBelloCV.pdf" target="_blank" class="btn-primary px-8 py-4 rounded-full text-white font-semibold inline-flex items-center">
+                            <i class="fas fa-download mr-2"></i> Download CV
+                        </a>
+                        <a href="contact.html" class="bg-white text-blue-900 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition inline-flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> Hire Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <div class="relative">
+                        <div class="w-80 h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Dr. Semiu Bello" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-white text-blue-900 p-6 rounded-full shadow-xl">
+                            <div class="text-center">
+                                <p class="text-3xl font-bold">13+</p>
+                                <p class="text-sm">Years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 bg-white" id="about">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 fade-in">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">About Us</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        A young, energetic, visionary academic and astute researcher in media and communication field who hails from Sagamu in Ogun State, South Western Nigeria, Semiu is a dogged character that grew up from a muddy background and has, over the years, with consistency, sharp focus and ever-green determination traversed the world to become an icon in the field of media and communication.
+                    </p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Semiu is a self-motivated and enthusiastic media and communication teacher, trainer, researcher and scholar whose research interest covers print journalism studies, health and development communication, media literacy, mass media and society, communication theories, media research, new/digital media and public relations. This young man, Semiu, has graciously enjoyed a successive and non-stop academic sojourn of reading, writing and researching in mass communication, leading to the award of five higher academic degrees between 1997 and 2015 in Nigeria and abroad, namely: PhD, M,Sc, MMRM, B.A (Hons) and HND.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        With determination and strong vitality, Semiu significantly proved his research ability and academic ingenuity during his PhD scholarship at the University of Canterbury, New Zealand where he made the record of the first candidate to complete a PhD thesis in two years in the Department of Media and Communication and the entire College of Arts. Semiu was privileged to have been tutelaged in his PhD scholarship by Professor Linda Jean Kenix, who herself, is a direct PhD supervisee and mentee of Professor Maxwell McCombs, the co-creator of Agenda Setting Theory. More importantly, in over 13 years of his academic career, Semiu has successfully published over fifty (50) academic papers in reputable national and international journals. This young scholar, Semiu, is widely cited nationally and internationally. Given the recognition he has enjoyed in the field, Semiu currently serves as a member of the Editorial Board of two reputable international journals in Malaysia and India respectively and a reviewer for many journals in Nigeria and abroad; including a Sage journal: Global Health Promotion.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Dr. Semiu is a strong and passionate community advocate and youth mobiliser. His passion for community development services has propelled him to be the founder and national Coordinator of The Regenerate Initiative (Tri) for Community health and Youth Development, an NGO focusing on community health and youth development. Semiu is also the President of Greatways Empowerment Club- an economic and poverty alleviation club based in Sagamu, Ogun State, Nigeria.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Semiu Bello is a teacher, character builder, mind moulder, an excellent media and communication researcher and a human manager of distinction. Dr. Semiu is a skilled professional speaker, prolific writer and excellent communicator. A passionate community mobiliser and advocate, Semiu Bello is a networker, strong collaborator and team builder. He is a corporate strategist, and seasoned organizational manager.
+                    </p>
+                </div>
+                <div class="md:w-1/2 md:text-full fade-in">
+                    <div class="hidden md:grid grid-cols-1 gap-4">
+                        <img src="http://semiubello.com/images/about.jpg" alt="Conference" class="rounded-lg shadow-lg hover-lift w-500 h-96 object-cover">
+                        <img src="http://semiubello.com/images/g%20(14).jpg" alt="Teaching" class="rounded-lg shadow-lg hover-lift w-500 h-96 object-cover">
+                        <img src="http://semiubello.com/images/g%20(19).jpg" alt="Research" class="rounded-lg shadow-lg hover-lift w-500 h-96 object-cover">
+                    </div>
+                    <div class="md:hidden carousel-container">
+                        <div class="carousel-track" id="about-carousel">
+                            <div class="carousel-item">
+                                <img src="http://semiubello.com/images/about.jpg" alt="Conference" class="rounded-lg shadow-lg w-full h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="http://semiubello.com/images/g%20(14).jpg" alt="Research" class="rounded-lg shadow-lg w-full h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="http://semiubello.com/images/g%20(19).jpg" alt="Teaching" class="rounded-lg shadow-lg w-full h-80 object-cover">
+                            </div>
+                        </div>
+                        <div class="flex justify-center mt-4 gap-2">
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-blue-600" data-index="0"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-index="1"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-index="2"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Skills Section -->
+<section class="py-20 bg-gray-50" id="skills">
+    <style>
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .slide-in-up {
+            animation: slideInUp 1.2s ease-out forwards;
+        }
+        /* optional staggered effect */
+        .skill-card {
+            opacity: 0;
+            animation: slideInUp 1.2s ease-out forwards;
+        }
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+        .skill-card:nth-child(7) { animation-delay: 0.7s; }
+        .skill-card:nth-child(8) { animation-delay: 0.8s; }
+        .skill-card:nth-child(9) { animation-delay: 0.9s; }
+        .skill-card:nth-child(10) { animation-delay: 1s; }
+        .skill-card:nth-child(11) { animation-delay: 1.1s; }
+        .skill-card:nth-child(12) { animation-delay: 1.2s; }
+        .skill-card:nth-child(13) { animation-delay: 1.3s; }
+        .skill-card:nth-child(14) { animation-delay: 1.4s; }
+        .skill-card:nth-child(15) { animation-delay: 1.5s; }
+    </style>
+
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 slide-in-up">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">My Key Skills</h2>
+            <p class="text-gray-600 text-lg">Expertise across multiple domains of communication and research</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div class="skill-card">
+                <i class="fas fa-heartbeat text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Organizational & Human Management</h3><br>
+                <h4 class="text-gray-800">Strong ability in human and organisational management to achieve organisation goal and objectives in the face of scarce resources</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-newspaper text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Media Strategy & Political Communication</h3><br>
+                <h4 class="text-gray-800">Excellent skills in media management & political communications for political candidates, politicians and relevant institutions & organizations.</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Professional & Creative Writing</h3><br>
+                <h4 class="text-gray-800">Excellent skills in writing and packaging of biography, letters, position papers, business proposal</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Corporate Strategy</h3><br>
+                <h4 class="text-gray-800">Excellent skills in corporate communication, corporate identity of organisations, businesses and individuals</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-book-open text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Proofreading</h3><br>
+                <h4 class="text-gray-800">Excellent skills in proofreading of manuscripts and book editing</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-bullhorn text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Article Review</h3><br>
+                <h4 class="text-gray-800">Considerable experience in reviewing articles for reputable journals</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-microscope text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Social Research</h3><br>
+                <h4 class="text-gray-800">Excellent skills in social research and community development services</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chalkboard-teacher text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Mentoring & Coaching</h3><br>
+                <h4 class="text-gray-800">Strong motivational skills and sound ability in mentoring students and other younger colleagues</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-hands-helping text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Public Speaking</h3><br>
+                <h4 class="text-gray-800">Excellent skills in public speaking, coaching and book review</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Pedagogical Teaching</h3><br>
+                <h4 class="text-gray-800">Excellent pedagogical experience in teaching and research in media and communication</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-project-diagram text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Thesis Supervision & Assessment</h3><br>
+                <h4 class="text-gray-800">Considerable experience in supervision of thesis at the undergraduate and postgraduate levels</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-pen-fancy text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Curriculum Planning & Development</h3><br>
+                <h4 class="text-gray-800">Excellent experience in curriculum planning and development in media and communication</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-comments text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Relationship Building</h3><br>
+                <h4 class="text-gray-800">Considerable experience in managing marital crisis and relationship building.</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-lightbulb text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Networking</h3><br>
+                <h4 class="text-gray-800">Strong ability in networking, collaboration and team building</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-globe text-4xl text-blue-600 mb-4"></i>
+                <h3 class="font-semibold text-gray-800">Interpersonal Interaction</h3><br>
+               <h4 class="text-gray-800">Excellent communication skills and interpersonal interaction among colleagues and people in general</h4> 
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Achievements Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Achievements</h2>
+                <p class="text-gray-600 text-lg">Numbers that speak for excellence</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 fade-out">
+                <div class="text-center">
+                    <i class="fas fa-award text-5xl text-blue-600 mb-4"></i>
+                    <div class="counter" data-target="6">0</div>
+                    <p class="text-gray-600 font-semibold mt-2">Awards</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-file-alt text-5xl text-blue-600 mb-4"></i>
+                    <div class="counter" data-target="50">0</div>
+                    <p class="text-gray-600 font-semibold mt-2">Publications</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-clock text-5xl text-blue-600 mb-4"></i>
+                    <div class="counter" data-target="13">0</div>
+                    <p class="text-gray-600 font-semibold mt-2">Years of Experience</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-microphone text-5xl text-blue-600 mb-4"></i>
+                    <div class="counter" data-target="30">0</div>
+                    <p class="text-gray-600 font-semibold mt-2">Conferences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Experience Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 ">
+                <!-- Education -->
+                <div class="fade-in bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-white bg-opacity-95"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-8">
+                            <i class="fas fa-graduation-cap text-4xl text-blue-900 mr-4"></i>
+                            <h2 class="text-3xl font-bold text-gray-800">Education</h2>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Doctor of Philosophy (PhD), Media and Communication</h3>
+                                <p class="text-blue-600 font-semibold">University of Canterbury, Christchurch New Zealandr</p>
+                                <p class="text-gray-600 text-sm">2013-2015</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Master of Science (M.Sc), Mass Communication</h3>
+                                <p class="text-blue-600 font-semibold">University of Lagos, Akoka, Nigeria</p>
+                                <p class="text-gray-600 text-sm">2008 - 2012</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Master in Media Resources Management (MMRM)</h3>
+                                <p class="text-blue-600 font-semibold">University of Ibadan, Oyo State</p>
+                                <p class="text-gray-600 text-sm">2007-2010</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Bachelor of Arts (B.A (Hons)), Mass Communication</h3>
+                                <p class="text-blue-600 font-semibold">Olabisi Onabanjo University, Ago Iwoye, Nigeria</p>
+                                <p class="text-gray-600 text-sm">2004-2007</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Higher National Diploma (HND), Mass Communication</h3>
+                                <p class="text-blue-600 font-semibold">Moshood Abiola Polytechnic Abeokuta, Ngeria</p>
+                                <p class="text-gray-600 text-sm">2000-2002</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">National Diploma (ND), Mass Communication</h3>
+                                <p class="text-blue-600 font-semibold">Moshood Abiola Polytechnic Abeokuta, Nigeria</p>
+                                <p class="text-gray-600 text-sm">1997-1999</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">West African Secondary School Certificate</h3>
+                                <p class="text-blue-600 font-semibold">Ofin High School Sagamu, Nigeria</p>
+                                <p class="text-gray-600 text-sm">1989-1994</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Primary School Leaving Certificate</h3>
+                                <p class="text-blue-600 font-semibold">Local Government Primary School 1 Ijagba Sagamu, Nigeria</p>
+                                <p class="text-gray-600 text-sm">1983-1988</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="fade-in bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=800'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-white bg-opacity-95"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-8">
+                            <i class="fas fa-briefcase text-4xl text-blue-900 mr-4"></i>
+                            <h2 class="text-3xl font-bold text-gray-800">Experience</h2>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Senior Lecturer, Kwara State</h3>
+                                <p class="text-blue-600 font-semibold">University Malete, Nigeria</p>
+                                <p class="text-gray-600 text-sm">2021 till date</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Lecturer and Researcher (Grade level 1)</h3>
+                                <p class="text-blue-600 font-semibold">Kwara State University Malete, via Ilorin, Nigeria</p>
+                                <p class="text-gray-600 text-sm">2018 - 2021</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Lecturer and Reseacher (Grade level 11)</h3>
+                                <p class="text-blue-600 font-semibold">Olabisi Onabanjo University, Department of Mass Communication, Ago Iwoye, Nigeria</p>
+                                <p class="text-gray-600 text-sm">2012-2018</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Senior Lecturer: International College of Health Sciences and Liberal Arts (ICHSLA)</h3>
+                                <p class="text-blue-600 font-semibold">School of Liberal Arts Studies, Nigeria (Adjunct Lecturer)</p>
+                                <p class="text-gray-600 text-sm">2015- 2016</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Assistant Lecturer</h3>
+                                <p class="text-blue-600 font-semibold">University of Canterbury, Department of Media and Communication</p>
+                                <p class="text-gray-600 text-sm">2015</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Lecturer and Researcher (Grade level 1)</h3>
+                                <p class="text-blue-600 font-semibold">Department of Mass Communication, Crescent University, Abeokuta, Nigeria</p>
+                                <p class="text-gray-600 text-sm">2008-2012</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Lecturer (Grade level 1)</h3>
+                                <p class="text-blue-600 font-semibold">Tai Solarin University of Education, Department of Sociological Studies, Mass Communication Unit: (Adjunct Lecturer)</p>
+                                <p class="text-gray-600 text-sm">2011-2012</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Lecturer and Researcher International Institute of Journalism, Abeokuta Centre</h3>
+                                <p class="text-blue-600 font-semibold">(Affiliated to University of Maiduguri) (Postgraduate Class)</p>
+                                <p class="text-gray-600 text-sm">2009-2010</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Lecturer and Researcher (Part Time)</h3>
+                                <p class="text-blue-600 font-semibold">Department of Mass Communication, Moshood Abiola Polytechnic, Abeokuta Nigeria</p>
+                                <p class="text-gray-600 text-sm">2008-2011</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Teacher</h3>
+                                <p class="text-blue-600 font-semibold">Sagamu High School, Sagamu, Nigeria English Language, Literature in English and Oral English</p>
+                                <p class="text-gray-600 text-sm">2005-2008</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Lecturer</h3>
+                                <p class="text-blue-600 font-semibold"> S-TEE Associates in Conjunction with OSU Consults Department of Mass Communication (Sagamu and Ijebu Ode Study Centres)</p>
+                                <p class="text-gray-600 text-sm">2004-2005</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Community Secondary School Obeleagu Umana, Enugu State, Nigeria Ezeagu Local Government, Enugu State English Language Teacher (NYSC Place of Primary Assignment)</h3>
+                                <p class="text-gray-600 text-sm">2003–2004</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold text-gray-800 text-lg">Omolade Nur. and Primary School, Sagamu, Nigeria (Teacher)</h3>
+                                <p class="text-gray-600 text-sm">1996-1997</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Testimonials</h2>
+                <p class="text-gray-600 text-lg">What colleagues and clients say about my work</p>
+            </div>
+            <div class="relative">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="testimonial-carousel">
+                        <div class="carousel-item px-4">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Dr. Amina Mohammed" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Dr. Amina Mohammed</h4>
+                                        <p class="text-sm text-blue-600">PhD, Public Health - WHO Regional Director</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello's expertise in health communication has been invaluable to our programs. His research-driven approach and ability to translate complex health information into accessible content...</p>
+                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello's expertise in health communication has been invaluable to our programs. His research-driven approach and ability to translate complex health information into accessible content has significantly improved our outreach effectiveness. His dedication to evidence-based communication strategies sets him apart as a true professional in the field.">Read More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item px-4">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Prof. Olamide Adeyemi" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Prof. Olamide Adeyemi</h4>
+                                        <p class="text-sm text-blue-600">PhD, Communication Studies - University Dean</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed testimonial-text">As a colleague, I've witnessed Dr. Bello's commitment to academic excellence. His publications are widely cited and his teaching methods are innovative...</p>
+                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="As a colleague, I've witnessed Dr. Bello's commitment to academic excellence. His publications are widely cited and his teaching methods are innovative. Students consistently praise his ability to make complex theories understandable and applicable to real-world scenarios.">Read More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item px-4">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Dr. Chioma Nwosu" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Dr. Chioma Nwosu</h4>
+                                        <p class="text-sm text-blue-600">MD, MPH - UNICEF Program Manager</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed testimonial-text">Working with Dr. Bello on our maternal health campaign was transformative. His strategic communication framework helped us reach vulnerable populations...</p>
+                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Working with Dr. Bello on our maternal health campaign was transformative. His strategic communication framework helped us reach vulnerable populations effectively. The impact was measurable - we saw a 40% increase in health-seeking behavior in our target communities.">Read More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item px-4">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="Mr. Tunde Bakare" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Mr. Tunde Bakare</h4>
+                                        <p class="text-sm text-blue-600">MSc, Health Policy - Ministry of Health</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello's consultancy on our COVID-19 communication strategy was exceptional. His crisis communication expertise and cultural sensitivity...</p>
+                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello's consultancy on our COVID-19 communication strategy was exceptional. His crisis communication expertise and cultural sensitivity ensured our messages resonated across diverse communities. He's not just a consultant; he's a partner invested in the success of public health initiatives.">Read More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item px-4">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100" alt="Dr. Fatima Abubakar" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Dr. Fatima Abubakar</h4>
+                                        <p class="text-sm text-blue-600">PhD, Media Studies - Research Director</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed testimonial-text">I've had the privilege of collaborating with Dr. Bello on multiple research projects. His methodological rigor and innovative thinking...</p>
+                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="I've had the privilege of collaborating with Dr. Bello on multiple research projects. His methodological rigor and innovative thinking consistently produce groundbreaking findings. He's a scholar who genuinely advances the field of health communication.">Read More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item px-4">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Prof. Emmanuel Okafor" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Prof. Emmanuel Okafor</h4>
+                                        <p class="text-sm text-blue-600">PhD, Sociology - Department Chair</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello brings a rare combination of theoretical depth and practical application to his work. His ability to engage diverse stakeholders...</p>
+                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello brings a rare combination of theoretical depth and practical application to his work. His ability to engage diverse stakeholders and build consensus around health communication strategies is remarkable. He's a leader in his field and a valuable asset to any institution.">Read More</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item px-4">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100" alt="Dr. Blessing Okoro" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Dr. Blessing Okoro</h4>
+                                        <p class="text-sm text-blue-600">PhD, Health Education - NGO Executive Director</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello's training workshops for our staff transformed how we approach community health communication. His practical frameworks and real-world examples...</p>
+                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello's training workshops for our staff transformed how we approach community health communication. His practical frameworks and real-world examples made the learning immediately applicable. Six months later, we're still implementing the strategies he taught us with excellent results.">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center hover:bg-blue-600 hover:text-white transition" id="testimonial-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center hover:bg-blue-600 hover:text-white transition" id="testimonial-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="flex justify-center mt-8 gap-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-blue-600" data-index="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="2"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="3"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="4"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="5"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="6"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Awards & Recognition</h2>
+                <p class="text-gray-600 text-lg">Honored for excellence in research and communication</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto fade-in">
+                <div class="bg-white rounded-xl shadow-lg p-8 hover-lift">
+                    <div class="flex items-start">
+                        <i class="fas fa-trophy text-5xl text-yellow-500 mr-6"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Best Researcher Award</h3>
+                            <p class="text-blue-600 font-semibold mb-2">African Communication Association</p>
+                            <p class="text-gray-600">Recognized for outstanding contribution to health communication research in Africa - 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 hover-lift">
+                    <div class="flex items-start">
+                        <i class="fas fa-medal text-5xl text-blue-500 mr-6"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Excellence in Teaching Award</h3>
+                            <p class="text-blue-600 font-semibold mb-2">University of Ibadan</p>
+                            <p class="text-gray-600">Awarded for innovative teaching methods and student mentorship - 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 hover-lift">
+                    <div class="flex items-start">
+                        <i class="fas fa-star text-5xl text-purple-500 mr-6"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Publication Excellence Award</h3>
+                            <p class="text-blue-600 font-semibold mb-2">International Health Communication Society</p>
+                            <p class="text-gray-600">For most cited paper in health communication journals - 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 hover-lift">
+                    <div class="flex items-start">
+                        <i class="fas fa-certificate text-5xl text-green-500 mr-6"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Community Impact Award</h3>
+                            <p class="text-blue-600 font-semibold mb-2">Nigerian Health Communicators Network</p>
+                            <p class="text-gray-600">Honoring grassroots health promotion initiatives - 2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">My Clients & Institutions</h2>
+                <p class="text-gray-600 text-lg">Trusted by leading universities and organizations</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center fade-in">
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-university text-5xl text-blue-900 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">University of Ibadan</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-university text-5xl text-blue-900 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">University of Lagos</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-school text-5xl text-green-600 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">Bayero University</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-globe text-5xl text-blue-500 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">WHO Nigeria</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-child text-5xl text-cyan-500 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">UNICEF Nigeria</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-hands-helping text-5xl text-red-600 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">Nigerian Red Cross</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-university text-5xl text-purple-600 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">Ahmadu Bello University</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-graduation-cap text-5xl text-orange-600 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">University of Benin</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-building text-5xl text-teal-600 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">Federal Ministry of Health</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-heartbeat text-5xl text-pink-600 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">Nigerian CDC</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-university text-5xl text-indigo-600 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">Obafemi Awolowo University</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
+                    <div class="text-center">
+                        <i class="fas fa-hospital text-5xl text-red-500 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-700">Teaching Hospitals Network</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-blue-900 font-bold text-xl">SMB</span>
+                        </div>
+                        <span class="text-xl font-bold">Dr. Semiu Bello</span>
+                    </div>
+                    <p class="text-blue-100">Seasoned Media & Health Communication Researcher and Consultant</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                <li><a href="index.html" class="nav-link text-white' hover:text-white font-medium">Home</a></li>
+                <li><a href="#about" class="nav-link text-white' hover:text-white font-medium">About</a></li> 
+                <li><a href="gallery.html" class="nav-link text-white' hover:text-white font-medium">Gallery</a></li>
+                <li><a href="#skills" class="nav-link text-white' hover:text-white font-medium">My key skills</a></li>
+                <li><a href="contact.html" class="nav-link text-white' hover:text-white font-medium">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>semiuolabello@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3"></i>
+                            <span>+234 803 046 6019</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Department of Mass Communication Faculty of Information & Communication Technology Kwara State University Malete via Ilorin Nigeria</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-700 mt-12 pt-8 text-center text-blue-100">
+                <p>© 2025 SemiuBello.com Design by TemiTech</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => fadeInObserver.observe(el));
+        
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        let counterAnimated = false;
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counterAnimated) {
+                    counterAnimated = true;
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+                        
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.textContent = Math.floor(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target;
+                            }
+                        };
+                        
+                        updateCounter();
+                    });
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        
+        if (counters.length > 0) {
+            counterObserver.observe(counters[0].parentElement.parentElement);
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // About carousel for mobile
+        const aboutCarousel = document.getElementById('about-carousel');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        
+        if (aboutCarousel) {
+            carouselDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateAboutCarousel();
+                });
+            });
+            
+            function updateAboutCarousel() {
+                aboutCarousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                carouselDots.forEach((dot, index) => {
+                    dot.classList.toggle('bg-blue-600', index === currentSlide);
+                    dot.classList.toggle('bg-gray-300', index !== currentSlide);
+                });
+            }
+            
+            // Auto-play
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % 4;
+                updateAboutCarousel();
+            }, 5000);
+        }
+        
+        // Testimonial carousel
+        const testimonialCarousel = document.getElementById('testimonial-carousel');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const prevBtn = document.getElementById('testimonial-prev');
+        const nextBtn = document.getElementById('testimonial-next');
+        let currentTestimonial = 0;
+        
+        function updateTestimonialCarousel() {
+            testimonialCarousel.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            testimonialDots.forEach((dot, index) => {
+                dot.classList.toggle('bg-blue-600', index === currentTestimonial);
+                dot.classList.toggle('bg-gray-300', index !== currentTestimonial);
+            });
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + 7) % 7;
+            updateTestimonialCarousel();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % 7;
+            updateTestimonialCarousel();
+        });
+        
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                updateTestimonialCarousel();
+            });
+        });
+        
+        // Read more functionality
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const fullText = this.getAttribute('data-full-text');
+                const textElement = this.previousElementSibling;
+                
+                if (this.textContent === 'Read More') {
+                    textElement.textContent = fullText;
+                    this.textContent = 'Read Less';
+                } else {
+                    textElement.textContent = fullText.substring(0, 150) + '...';
+                    this.textContent = 'Read More';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

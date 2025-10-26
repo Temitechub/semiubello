@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semiu Musa Bello, PhD - Media & Health Communication Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+        }
+        
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .skill-card:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .skill-card:hover i {
+            color: white;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3b82f6;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            color: #f3f4f6;
+            font-family: Georgia, serif;
+        }
+        
+        .search-bar {
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus {
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .counter {
+                font-size: 2rem;
+            }
+            
+            .search-bar:focus {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-900 to-blue-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">SMB</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Dr. Semiu Musa Bello</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">My key skills</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                    <input type="search" placeholder="Search..." class="search-bar px-4 py-2 border border-gray-300 rounded-full focus:outline-none w-40">
+                </div>
+                
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="hidden md:hidden mt-4" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">My key skills</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                    <input type="search" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-full focus:outline-none">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gradient-to-r from-blue-900 to-blue-600 py-8">
+        <div class="container mx-auto px-6">
+            <div class="breadcrumb text-white">
+                <a href="index.html" class="hover:underline">Home</a>
+                <i class="fas fa-chevron-right text-sm"></i>
+                <span>Gallery</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mt-4">Photo Gallery</h1>
+        </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-3 rounded-full font-semibold bg-gray-100 hover:bg-blue-600 hover:text-white" data-filter="all">All</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold bg-gray-100 hover:bg-blue-600 hover:text-white" data-filter="conferences">Conferences</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold bg-gray-100 hover:bg-blue-600 hover:text-white" data-filter="teaching">Teaching</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold bg-gray-100 hover:bg-blue-600 hover:text-white" data-filter="research">Research</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold bg-gray-100 hover:bg-blue-600 hover:text-white" data-filter="awards">Awards</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold bg-gray-100 hover:bg-blue-600 hover:text-white" data-filter="community">Community</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Conference Images -->
+                <div class="gallery-item fade-in" data-category="conferences">
+                    <img src="http://semiubello.com/images/g%20(1).jpg" alt="International Health Communication Conference" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">After a workshop at the library complex, University of Canterbury, New Zealand</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="conferences">
+                    <img src="http://semiubello.com/images/g%20(2).jpg" alt="African Communication Summit" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">Presenting at the 2014 IAMCR Conference in India</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="conferences">
+                    <img src="http://semiubello.com/images/g%20(3).jpg" alt="WHO Regional Meeting" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">Presentation in New Zealand</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teaching Images -->
+                <div class="gallery-item fade-in" data-category="teaching">
+                    <img src="http://semiubello.com/images/g%20(4).jpg" alt="Lecture at University of Ibadan" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">Presentation in New Zealand</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="teaching">
+                    <img src="http://semiubello.com/images/g%20(6).jpg" alt="Workshop Training" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">Delivering a speech in New York City</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="teaching">
+                    <img src="http://semiubello.com/images/g%20(19).jpg" alt="Student Mentorship" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">Presentation at the University of Canterbury, New Zealand</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Research Images -->
+                <div class="gallery-item fade-in" data-category="research">
+                    <img src="http://semiubello.com/images/g%20(8).jpg" alt="Field Research" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">At the IAMCR Conference in India in 2014</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="research">
+                    <img src="http://semiubello.com/images/g%20(11).jpg" alt="Data Analysis" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">At the 2018 ICJMC Conference held in New York, US.</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="research">
+                    <img src="http://semiubello.com/images/g%20(12).jpg" alt="Lab Research" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">At a visit to the United Nations Headquarters in New York City in the year 2018</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Awards Images -->
+                <div class="gallery-item fade-in" data-category="awards">
+                    <img src="http://semiubello.com/images/g%20(10).jpg" alt="Best Researcher Award" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">On the 10th December, 2015 after my PhD viva.</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="awards">
+                    <img src="http://semiubello.com/images/g%20(9).jpg" alt="Excellence Award" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">At the IAMCR Conference in India in 2014</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="awards">
+                    <img src="http://semiubello.com/images/g%20(5).jpg" alt="Publication Award" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg"> Acceptance of gift after a presentation in New Zealand</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Community Images -->
+                <div class="gallery-item fade-in" data-category="community">
+                    <img src="http://semiubello.com/images/g%20(14).jpg" alt="Community Outreach" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">At the 2014 IAMCR Conference in India</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="community">
+                    <img src="http://semiubello.com/images/g%20(10).jpg" alt="Health Education" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">On the 10th December, 2015 after my PhD viva.</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="community">
+                    <img src="http://semiubello.com/images/g%20(15).jpg" alt="Youth Engagement" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">With Prof. Guy Berger in India</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More Mixed Images -->
+                <div class="gallery-item fade-in" data-category="conferences">
+                    <img src="http://semiubello.com/images/g%20(16).jpg" alt="Virtual Conference" class="w-full h-fullobject-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">At Ohio, US</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="research">
+                    <img src="http://semiubello.com/images/g%20(18).jpg" alt="Collaborative Research" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">Inside the World Trade Center, New York</h3>                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="teaching">
+                    <img src="http://semiubello.com/images/g%20(17).jpg" alt="Graduate Seminar" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white">
+                            <h3 class="font-bold text-lg">At the WTC New York</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="text-white mt-4 text-center">
+                <h3 class="text-2xl font-bold mb-2" id="lightbox-title"></h3>
+                <p class="text-lg" id="lightbox-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-blue-900 font-bold text-xl">SMB</span>
+                        </div>
+                        <span class="text-xl font-bold">Dr. Semiu Bello</span>
+                    </div>
+                    <p class="text-blue-100">Seasoned Media & Health Communication Researcher and Consultant</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                <li><a href="index.html" class="nav-link text-white' hover:text-white font-medium">Home</a></li>
+                <li><a href="#about" class="nav-link text-white' hover:text-white font-medium">About</a></li> 
+                <li><a href="gallery.html" class="nav-link text-white' hover:text-white font-medium">Gallery</a></li>
+                <li><a href="#skills" class="nav-link text-white' hover:text-white font-medium">My key skills</a></li>
+                <li><a href="contact.html" class="nav-link text-white' hover:text-white font-medium">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>semiuolabello@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3"></i>
+                            <span>+234 803 046 6019</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Department of Mass Communication Faculty of Information & Communication Technology Kwara State University Malete via Ilorin Nigeria</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-700 mt-12 pt-8 text-center text-blue-100">
+                <p>© 2025 SemiuBello.com Design by TemiTech</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => fadeInObserver.observe(el));
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Gallery filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, 10);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDescription = document.getElementById('lightbox-description');
+        const lightboxClose = document.getElementById('lightbox-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const overlay = item.querySelector('.gallery-overlay');
+                const title = overlay.querySelector('h3').textContent;
+                const description = overlay.querySelector('p').textContent;
+                
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt;
+                lightboxTitle.textContent = title;
+                lightboxDescription.textContent = description;
+                lightbox.classList.add('active');
+            });
+        });
+        
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+        
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
