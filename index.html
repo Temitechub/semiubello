@@ -95,6 +95,18 @@
             width: 100%;
         }
         
+        /* Enhanced Skill Card Animation */
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
         .skill-card {
             background: white;
             border-radius: 12px;
@@ -102,7 +114,25 @@
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid #e5e7eb;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
         }
+        
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+        .skill-card:nth-child(7) { animation-delay: 0.7s; }
+        .skill-card:nth-child(8) { animation-delay: 0.8s; }
+        .skill-card:nth-child(9) { animation-delay: 0.9s; }
+        .skill-card:nth-child(10) { animation-delay: 1s; }
+        .skill-card:nth-child(11) { animation-delay: 1.1s; }
+        .skill-card:nth-child(12) { animation-delay: 1.2s; }
+        .skill-card:nth-child(13) { animation-delay: 1.3s; }
+        .skill-card:nth-child(14) { animation-delay: 1.4s; }
+        .skill-card:nth-child(15) { animation-delay: 1.5s; }
         
         .skill-card:hover {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -111,6 +141,11 @@
         }
         
         .skill-card:hover i {
+            color: white;
+        }
+        
+        .skill-card:hover h3,
+        .skill-card:hover h4 {
             color: white;
         }
         
@@ -147,23 +182,110 @@
             display: none;
         }
         
+        /* Enhanced Testimonial Card Design */
         .testimonial-card {
             background: white;
             border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
         }
         
         .testimonial-card::before {
             content: '"';
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 120px;
-            color: #f3f4f6;
+            position: initial;
+            top: -30px;
+            left: 30px;
+            font-size: 150px;
+            color: #3b82f6;
+            opacity: 0.1;
             font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+            margin-right: 1rem;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-info p {
+            font-size: 0.9rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        
+        .testimonial-text {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .read-more-btn {
+            color: #3b82f6;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0.5rem 0;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .read-more-btn:hover {
+            color: #1e3a8a;
+        }
+        
+        .testimonial-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-carousel-btn:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
         }
         
         .search-bar {
@@ -182,6 +304,15 @@
             
             .search-bar:focus {
                 width: 200px;
+            }
+            
+            .testimonial-card {
+                min-height: 300px;
+            }
+            
+            .testimonial-carousel-btn {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -232,11 +363,7 @@
                 <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
                     <p class="text-xl md:text-2xl mb-8 text-blue-100">Seasoned Media & Health <br> Communication Researcher and Consultant</p>
                     <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Semiu Musa Bello, PhD</h1>
-                    <p class="text-sm md:text-xl mb-8 text-blue-100">Communicator, Researcher, Corporate strategist,<br>
-Administrator, Mentor & Community Advocate
-
- 
-</p>
+                    <p class="text-sm md:text-xl mb-8 text-blue-100">Communicator, Researcher, Corporate strategist,<br>Administrator, Mentor & Community Advocate</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="http://semiubello.com/SemiuBelloCV.pdf" target="_blank" class="btn-primary px-8 py-4 rounded-full text-white font-semibold inline-flex items-center">
                             <i class="fas fa-download mr-2"></i> Download CV
@@ -315,127 +442,91 @@ Administrator, Mentor & Community Advocate
     </section>
 
     <!-- Key Skills Section -->
-<section class="py-20 bg-gray-50" id="skills">
-    <style>
-        @keyframes slideInUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        .slide-in-up {
-            animation: slideInUp 1.2s ease-out forwards;
-        }
-        /* optional staggered effect */
-        .skill-card {
-            opacity: 0;
-            animation: slideInUp 1.2s ease-out forwards;
-        }
-        .skill-card:nth-child(1) { animation-delay: 0.1s; }
-        .skill-card:nth-child(2) { animation-delay: 0.2s; }
-        .skill-card:nth-child(3) { animation-delay: 0.3s; }
-        .skill-card:nth-child(4) { animation-delay: 0.4s; }
-        .skill-card:nth-child(5) { animation-delay: 0.5s; }
-        .skill-card:nth-child(6) { animation-delay: 0.6s; }
-        .skill-card:nth-child(7) { animation-delay: 0.7s; }
-        .skill-card:nth-child(8) { animation-delay: 0.8s; }
-        .skill-card:nth-child(9) { animation-delay: 0.9s; }
-        .skill-card:nth-child(10) { animation-delay: 1s; }
-        .skill-card:nth-child(11) { animation-delay: 1.1s; }
-        .skill-card:nth-child(12) { animation-delay: 1.2s; }
-        .skill-card:nth-child(13) { animation-delay: 1.3s; }
-        .skill-card:nth-child(14) { animation-delay: 1.4s; }
-        .skill-card:nth-child(15) { animation-delay: 1.5s; }
-    </style>
-
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16 slide-in-up">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4">My Key Skills</h2>
-            <p class="text-gray-600 text-lg">Expertise across multiple domains of communication and research</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <div class="skill-card">
-                <i class="fas fa-heartbeat text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Organizational & Human Management</h3><br>
-                <h4 class="text-gray-800">Strong ability in human and organisational management to achieve organisation goal and objectives in the face of scarce resources</h4>
+    <section class="py-20 bg-gray-50" id="skills">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in visible">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">My Key Skills</h2>
+                <p class="text-gray-600 text-lg">Expertise across multiple domains of communication and research</p>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-newspaper text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Media Strategy & Political Communication</h3><br>
-                <h4 class="text-gray-800">Excellent skills in media management & political communications for political candidates, politicians and relevant institutions & organizations.</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Professional & Creative Writing</h3><br>
-                <h4 class="text-gray-800">Excellent skills in writing and packaging of biography, letters, position papers, business proposal</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Corporate Strategy</h3><br>
-                <h4 class="text-gray-800">Excellent skills in corporate communication, corporate identity of organisations, businesses and individuals</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-book-open text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Proofreading</h3><br>
-                <h4 class="text-gray-800">Excellent skills in proofreading of manuscripts and book editing</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-bullhorn text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Article Review</h3><br>
-                <h4 class="text-gray-800">Considerable experience in reviewing articles for reputable journals</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-microscope text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Social Research</h3><br>
-                <h4 class="text-gray-800">Excellent skills in social research and community development services</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-chalkboard-teacher text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Mentoring & Coaching</h3><br>
-                <h4 class="text-gray-800">Strong motivational skills and sound ability in mentoring students and other younger colleagues</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-hands-helping text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Public Speaking</h3><br>
-                <h4 class="text-gray-800">Excellent skills in public speaking, coaching and book review</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Pedagogical Teaching</h3><br>
-                <h4 class="text-gray-800">Excellent pedagogical experience in teaching and research in media and communication</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-project-diagram text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Thesis Supervision & Assessment</h3><br>
-                <h4 class="text-gray-800">Considerable experience in supervision of thesis at the undergraduate and postgraduate levels</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-pen-fancy text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Curriculum Planning & Development</h3><br>
-                <h4 class="text-gray-800">Excellent experience in curriculum planning and development in media and communication</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-comments text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Relationship Building</h3><br>
-                <h4 class="text-gray-800">Considerable experience in managing marital crisis and relationship building.</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-lightbulb text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Networking</h3><br>
-                <h4 class="text-gray-800">Strong ability in networking, collaboration and team building</h4>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-globe text-4xl text-blue-600 mb-4"></i>
-                <h3 class="font-semibold text-gray-800">Interpersonal Interaction</h3><br>
-               <h4 class="text-gray-800">Excellent communication skills and interpersonal interaction among colleagues and people in general</h4> 
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="skill-card">
+                    <i class="fas fa-heartbeat text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Organizational & Human Management</h3><br>
+                    <h4 class="text-gray-800">Strong ability in human and organisational management to achieve organisation goal and objectives in the face of scarce resources</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-newspaper text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Media Strategy & Political Communication</h3><br>
+                    <h4 class="text-gray-800">Excellent skills in media management & political communications for political candidates, politicians and relevant institutions & organizations.</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Professional & Creative Writing</h3><br>
+                    <h4 class="text-gray-800">Excellent skills in writing and packaging of biography, letters, position papers, business proposal</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Corporate Strategy</h3><br>
+                    <h4 class="text-gray-800">Excellent skills in corporate communication, corporate identity of organisations, businesses and individuals</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-book-open text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Proofreading</h3><br>
+                    <h4 class="text-gray-800">Excellent skills in proofreading of manuscripts and book editing</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bullhorn text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Article Review</h3><br>
+                    <h4 class="text-gray-800">Considerable experience in reviewing articles for reputable journals</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-microscope text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Social Research</h3><br>
+                    <h4 class="text-gray-800">Excellent skills in social research and community development services</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chalkboard-teacher text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Mentoring & Coaching</h3><br>
+                    <h4 class="text-gray-800">Strong motivational skills and sound ability in mentoring students and other younger colleagues</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-hands-helping text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Public Speaking</h3><br>
+                    <h4 class="text-gray-800">Excellent skills in public speaking, coaching and book review</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Pedagogical Teaching</h3><br>
+                    <h4 class="text-gray-800">Excellent pedagogical experience in teaching and research in media and communication</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-project-diagram text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Thesis Supervision & Assessment</h3><br>
+                    <h4 class="text-gray-800">Considerable experience in supervision of thesis at the undergraduate and postgraduate levels</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-pen-fancy text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Curriculum Planning & Development</h3><br>
+                    <h4 class="text-gray-800">Excellent experience in curriculum planning and development in media and communication</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-comments text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Relationship Building</h3><br>
+                    <h4 class="text-gray-800">Considerable experience in managing marital crisis and relationship building.</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Networking</h3><br>
+                    <h4 class="text-gray-800">Strong ability in networking, collaboration and team building</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-globe text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Interpersonal Interaction</h3><br>
+                    <h4 class="text-gray-800">Excellent communication skills and interpersonal interaction among colleagues and people in general</h4> 
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Achievements Section -->
     <section class="py-20 bg-white">
@@ -444,7 +535,7 @@ Administrator, Mentor & Community Advocate
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Achievements</h2>
                 <p class="text-gray-600 text-lg">Numbers that speak for excellence</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 fade-out">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 fade-in">
                 <div class="text-center">
                     <i class="fas fa-award text-5xl text-blue-600 mb-4"></i>
                     <div class="counter" data-target="6">0</div>
@@ -472,7 +563,7 @@ Administrator, Mentor & Community Advocate
     <!-- Education & Experience Section -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 ">
+            <div class="grid md:grid-cols-2 gap-12">
                 <!-- Education -->
                 <div class="fade-in bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800'); background-size: cover; background-position: center;">
                     <div class="absolute inset-0 bg-white bg-opacity-95"></div>
@@ -484,7 +575,7 @@ Administrator, Mentor & Community Advocate
                         <div class="space-y-6">
                             <div class="timeline-item">
                                 <h3 class="font-bold text-gray-800 text-lg">Doctor of Philosophy (PhD), Media and Communication</h3>
-                                <p class="text-blue-600 font-semibold">University of Canterbury, Christchurch New Zealandr</p>
+                                <p class="text-blue-600 font-semibold">University of Canterbury, Christchurch New Zealand</p>
                                 <p class="text-gray-600 text-sm">2013-2015</p>
                             </div>
                             <div class="timeline-item">
@@ -504,7 +595,7 @@ Administrator, Mentor & Community Advocate
                             </div>
                             <div class="timeline-item">
                                 <h3 class="font-bold text-gray-800 text-lg">Higher National Diploma (HND), Mass Communication</h3>
-                                <p class="text-blue-600 font-semibold">Moshood Abiola Polytechnic Abeokuta, Ngeria</p>
+                                <p class="text-blue-600 font-semibold">Moshood Abiola Polytechnic Abeokuta, Nigeria</p>
                                 <p class="text-gray-600 text-sm">2000-2002</p>
                             </div>
                             <div class="timeline-item">
@@ -587,11 +678,12 @@ Administrator, Mentor & Community Advocate
                             </div>
                             <div class="timeline-item">
                                 <h3 class="font-bold text-gray-800 text-lg">Lecturer</h3>
-                                <p class="text-blue-600 font-semibold"> S-TEE Associates in Conjunction with OSU Consults Department of Mass Communication (Sagamu and Ijebu Ode Study Centres)</p>
+                                <p class="text-blue-600 font-semibold">S-TEE Associates in Conjunction with OSU Consults Department of Mass Communication (Sagamu and Ijebu Ode Study Centres)</p>
                                 <p class="text-gray-600 text-sm">2004-2005</p>
                             </div>
                             <div class="timeline-item">
-                                <h3 class="font-bold text-gray-800 text-lg">Community Secondary School Obeleagu Umana, Enugu State, Nigeria Ezeagu Local Government, Enugu State English Language Teacher (NYSC Place of Primary Assignment)</h3>
+                                <h3 class="font-bold text-gray-800 text-lg">Community Secondary School Obeleagu Umana, Enugu State, Nigeria</h3>
+                                <p class="text-blue-600 font-semibold">Ezeagu Local Government, Enugu State English Language Teacher (NYSC Place of Primary Assignment)</p>
                                 <p class="text-gray-600 text-sm">2003–2004</p>
                             </div>
                             <div class="timeline-item">
@@ -612,106 +704,106 @@ Administrator, Mentor & Community Advocate
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Testimonials</h2>
                 <p class="text-gray-600 text-lg">What colleagues and clients say about my work</p>
             </div>
-            <div class="relative">
+            <div class="relative max-w-5xl mx-auto">
                 <div class="carousel-container">
                     <div class="carousel-track" id="testimonial-carousel">
                         <div class="carousel-item px-4">
                             <div class="testimonial-card">
-                                <div class="flex items-center mb-6">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Dr. Amina Mohammed" class="w-16 h-16 rounded-full object-cover mr-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">Dr. Amina Mohammed</h4>
-                                        <p class="text-sm text-blue-600">PhD, Public Health - WHO Regional Director</p>
+                                <div class="testimonial-header">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Dr. Amina Mohammed" class="testimonial-image">
+                                    <div class="testimonial-info">
+                                        <h4>Dr. Amina Mohammed</h4>
+                                        <p>PhD, Public Health - WHO Regional Director</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello's expertise in health communication has been invaluable to our programs. His research-driven approach and ability to translate complex health information into accessible content...</p>
-                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello's expertise in health communication has been invaluable to our programs. His research-driven approach and ability to translate complex health information into accessible content has significantly improved our outreach effectiveness. His dedication to evidence-based communication strategies sets him apart as a true professional in the field.">Read More</button>
+                                <p class="testimonial-text">Dr. Bello's expertise in health communication has been invaluable to our programs. His research-driven approach and ability to translate complex health information into accessible content...</p>
+                                <button class="read-more-btn" data-full-text="Dr. Bello's expertise in health communication has been invaluable to our programs. His research-driven approach and ability to translate complex health information into accessible content has significantly improved our outreach effectiveness. His dedication to evidence-based communication strategies sets him apart as a true professional in the field.">Read More →</button>
                             </div>
                         </div>
                         <div class="carousel-item px-4">
                             <div class="testimonial-card">
-                                <div class="flex items-center mb-6">
-                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Prof. Olamide Adeyemi" class="w-16 h-16 rounded-full object-cover mr-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">Prof. Olamide Adeyemi</h4>
-                                        <p class="text-sm text-blue-600">PhD, Communication Studies - University Dean</p>
+                                <div class="testimonial-header">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Prof. Olamide Adeyemi" class="testimonial-image">
+                                    <div class="testimonial-info">
+                                        <h4>Prof. Olamide Adeyemi</h4>
+                                        <p>PhD, Communication Studies - University Dean</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 leading-relaxed testimonial-text">As a colleague, I've witnessed Dr. Bello's commitment to academic excellence. His publications are widely cited and his teaching methods are innovative...</p>
-                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="As a colleague, I've witnessed Dr. Bello's commitment to academic excellence. His publications are widely cited and his teaching methods are innovative. Students consistently praise his ability to make complex theories understandable and applicable to real-world scenarios.">Read More</button>
+                                <p class="testimonial-text">As a colleague, I've witnessed Dr. Bello's commitment to academic excellence. His publications are widely cited and his teaching methods are innovative...</p>
+                                <button class="read-more-btn" data-full-text="As a colleague, I've witnessed Dr. Bello's commitment to academic excellence. His publications are widely cited and his teaching methods are innovative. Students consistently praise his ability to make complex theories understandable and applicable to real-world scenarios.">Read More →</button>
                             </div>
                         </div>
                         <div class="carousel-item px-4">
                             <div class="testimonial-card">
-                                <div class="flex items-center mb-6">
-                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Dr. Chioma Nwosu" class="w-16 h-16 rounded-full object-cover mr-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">Dr. Chioma Nwosu</h4>
-                                        <p class="text-sm text-blue-600">MD, MPH - UNICEF Program Manager</p>
+                                <div class="testimonial-header">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Dr. Chioma Nwosu" class="testimonial-image">
+                                    <div class="testimonial-info">
+                                        <h4>Dr. Chioma Nwosu</h4>
+                                        <p>MD, MPH - UNICEF Program Manager</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 leading-relaxed testimonial-text">Working with Dr. Bello on our maternal health campaign was transformative. His strategic communication framework helped us reach vulnerable populations...</p>
-                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Working with Dr. Bello on our maternal health campaign was transformative. His strategic communication framework helped us reach vulnerable populations effectively. The impact was measurable - we saw a 40% increase in health-seeking behavior in our target communities.">Read More</button>
+                                <p class="testimonial-text">Working with Dr. Bello on our maternal health campaign was transformative. His strategic communication framework helped us reach vulnerable populations...</p>
+                                <button class="read-more-btn" data-full-text="Working with Dr. Bello on our maternal health campaign was transformative. His strategic communication framework helped us reach vulnerable populations effectively. The impact was measurable - we saw a 40% increase in health-seeking behavior in our target communities.">Read More →</button>
                             </div>
                         </div>
                         <div class="carousel-item px-4">
                             <div class="testimonial-card">
-                                <div class="flex items-center mb-6">
-                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="Mr. Tunde Bakare" class="w-16 h-16 rounded-full object-cover mr-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">Mr. Tunde Bakare</h4>
-                                        <p class="text-sm text-blue-600">MSc, Health Policy - Ministry of Health</p>
+                                <div class="testimonial-header">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="Mr. Tunde Bakare" class="testimonial-image">
+                                    <div class="testimonial-info">
+                                        <h4>Mr. Tunde Bakare</h4>
+                                        <p>MSc, Health Policy - Ministry of Health</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello's consultancy on our COVID-19 communication strategy was exceptional. His crisis communication expertise and cultural sensitivity...</p>
-                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello's consultancy on our COVID-19 communication strategy was exceptional. His crisis communication expertise and cultural sensitivity ensured our messages resonated across diverse communities. He's not just a consultant; he's a partner invested in the success of public health initiatives.">Read More</button>
+                                <p class="testimonial-text">Dr. Bello's consultancy on our COVID-19 communication strategy was exceptional. His crisis communication expertise and cultural sensitivity...</p>
+                                <button class="read-more-btn" data-full-text="Dr. Bello's consultancy on our COVID-19 communication strategy was exceptional. His crisis communication expertise and cultural sensitivity ensured our messages resonated across diverse communities. He's not just a consultant; he's a partner invested in the success of public health initiatives.">Read More →</button>
                             </div>
                         </div>
                         <div class="carousel-item px-4">
                             <div class="testimonial-card">
-                                <div class="flex items-center mb-6">
-                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100" alt="Dr. Fatima Abubakar" class="w-16 h-16 rounded-full object-cover mr-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">Dr. Fatima Abubakar</h4>
-                                        <p class="text-sm text-blue-600">PhD, Media Studies - Research Director</p>
+                                <div class="testimonial-header">
+                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100" alt="Dr. Fatima Abubakar" class="testimonial-image">
+                                    <div class="testimonial-info">
+                                        <h4>Dr. Fatima Abubakar</h4>
+                                        <p>PhD, Media Studies - Research Director</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 leading-relaxed testimonial-text">I've had the privilege of collaborating with Dr. Bello on multiple research projects. His methodological rigor and innovative thinking...</p>
-                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="I've had the privilege of collaborating with Dr. Bello on multiple research projects. His methodological rigor and innovative thinking consistently produce groundbreaking findings. He's a scholar who genuinely advances the field of health communication.">Read More</button>
+                                <p class="testimonial-text">I've had the privilege of collaborating with Dr. Bello on multiple research projects. His methodological rigor and innovative thinking...</p>
+                                <button class="read-more-btn" data-full-text="I've had the privilege of collaborating with Dr. Bello on multiple research projects. His methodological rigor and innovative thinking consistently produce groundbreaking findings. He's a scholar who genuinely advances the field of health communication.">Read More →</button>
                             </div>
                         </div>
                         <div class="carousel-item px-4">
                             <div class="testimonial-card">
-                                <div class="flex items-center mb-6">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Prof. Emmanuel Okafor" class="w-16 h-16 rounded-full object-cover mr-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">Prof. Emmanuel Okafor</h4>
-                                        <p class="text-sm text-blue-600">PhD, Sociology - Department Chair</p>
+                                <div class="testimonial-header">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Prof. Emmanuel Okafor" class="testimonial-image">
+                                    <div class="testimonial-info">
+                                        <h4>Prof. Emmanuel Okafor</h4>
+                                        <p>PhD, Sociology - Department Chair</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello brings a rare combination of theoretical depth and practical application to his work. His ability to engage diverse stakeholders...</p>
-                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello brings a rare combination of theoretical depth and practical application to his work. His ability to engage diverse stakeholders and build consensus around health communication strategies is remarkable. He's a leader in his field and a valuable asset to any institution.">Read More</button>
+                                <p class="testimonial-text">Dr. Bello brings a rare combination of theoretical depth and practical application to his work. His ability to engage diverse stakeholders...</p>
+                                <button class="read-more-btn" data-full-text="Dr. Bello brings a rare combination of theoretical depth and practical application to his work. His ability to engage diverse stakeholders and build consensus around health communication strategies is remarkable. He's a leader in his field and a valuable asset to any institution.">Read More →</button>
                             </div>
                         </div>
                         <div class="carousel-item px-4">
                             <div class="testimonial-card">
-                                <div class="flex items-center mb-6">
-                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100" alt="Dr. Blessing Okoro" class="w-16 h-16 rounded-full object-cover mr-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">Dr. Blessing Okoro</h4>
-                                        <p class="text-sm text-blue-600">PhD, Health Education - NGO Executive Director</p>
+                                <div class="testimonial-header">
+                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100" alt="Dr. Blessing Okoro" class="testimonial-image">
+                                    <div class="testimonial-info">
+                                        <h4>Dr. Blessing Okoro</h4>
+                                        <p>PhD, Health Education - NGO Executive Director</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 leading-relaxed testimonial-text">Dr. Bello's training workshops for our staff transformed how we approach community health communication. His practical frameworks and real-world examples...</p>
-                                <button class="text-blue-600 font-semibold mt-4 read-more-btn" data-full-text="Dr. Bello's training workshops for our staff transformed how we approach community health communication. His practical frameworks and real-world examples made the learning immediately applicable. Six months later, we're still implementing the strategies he taught us with excellent results.">Read More</button>
+                                <p class="testimonial-text">Dr. Bello's training workshops for our staff transformed how we approach community health communication. His practical frameworks and real-world examples...</p>
+                                <button class="read-more-btn" data-full-text="Dr. Bello's training workshops for our staff transformed how we approach community health communication. His practical frameworks and real-world examples made the learning immediately applicable. Six months later, we're still implementing the strategies he taught us with excellent results.">Read More →</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center hover:bg-blue-600 hover:text-white transition" id="testimonial-prev">
+                <button class="testimonial-carousel-btn" style="left: -60px;" id="testimonial-prev">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center hover:bg-blue-600 hover:text-white transition" id="testimonial-next">
+                <button class="testimonial-carousel-btn" style="right: -60px;" id="testimonial-next">
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 <div class="flex justify-center mt-8 gap-2">
@@ -731,7 +823,7 @@ Administrator, Mentor & Community Advocate
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4"> My Awards </h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">My Awards</h2>
                 <p class="text-gray-600 text-lg">AWARDS, GRANTS AND DISTINCTION</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto fade-in">
@@ -750,7 +842,7 @@ Administrator, Mentor & Community Advocate
                         <i class="fas fa-medal text-5xl text-blue-500 mr-6"></i>
                         <div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2">Research Grant</h3>
-                            <p class="text-blue-600 font-semibold mb-2">University of Canterbury </p>
+                            <p class="text-blue-600 font-semibold mb-2">University of Canterbury</p>
                             <p class="text-gray-600">Contestable Research Grant to attend the Annual Conference of International Association of Media and Communication Researchers (IAMCR) held in Hyderabad India.</p>
                         </div>
                     </div>
@@ -760,7 +852,7 @@ Administrator, Mentor & Community Advocate
                         <i class="fas fa-star text-5xl text-purple-500 mr-6"></i>
                         <div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2">Research Grant</h3>
-                            <p class="text-blue-600 font-semibold mb-2">University of Canterbury </p>
+                            <p class="text-blue-600 font-semibold mb-2">University of Canterbury</p>
                             <p class="text-gray-600">Contestable Research Grant to attend the Annual Conference of Australia and New Zealand Communication Association (ANZCA) held in Queenstown New Zealand.</p>
                         </div>
                     </div>
@@ -769,7 +861,7 @@ Administrator, Mentor & Community Advocate
                     <div class="flex items-start">
                         <i class="fas fa-certificate text-5xl text-green-500 mr-6"></i>
                         <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Research Grant</h3>
+                            <h3 class="font-bold text-gray-800 mb-2">Research Grant</h3>
                             <p class="text-blue-600 font-semibold mb-2">University of Canterbury</p>
                             <p class="text-gray-600">Contestable Research Grant to attend the Annual Conference of Journalism Education Association of New Zealand (JEANZ) held at Massey University, Wellington New Zealand.</p>
                         </div>
@@ -801,7 +893,7 @@ Administrator, Mentor & Community Advocate
                         <p class="text-2xl font-semibold text-gray-700">Heritage Home School,<br> Lagos, Nigeria</p>
                     </div>
                 </div>
-                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift ">
+                <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg hover-lift">
                     <div class="text-center">
                          <img src="http://semiubello.com/images/indiv/third_age.png" alt="" width="350px" height="250px">
                         <i class="text-5xl text-green-600 mb-2"></i>
@@ -829,6 +921,7 @@ Administrator, Mentor & Community Advocate
                         <p class="text-2xl font-semibold text-gray-700 mt-8">National Association of Proprietors of <br>Private Schools, Ijebu Mushin, Nigeria</p>
                     </div>
                 </div>
+            </div>
         </div>
     </section>
 
@@ -849,11 +942,11 @@ Administrator, Mentor & Community Advocate
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                <li><a href="index.html" class="nav-link text-white' hover:text-white font-medium">Home</a></li>
-                <li><a href="#about" class="nav-link text-white' hover:text-white font-medium">About</a></li> 
-                <li><a href="gallery.html" class="nav-link text-white' hover:text-white font-medium">Gallery</a></li>
-                <li><a href="#skills" class="nav-link text-white' hover:text-white font-medium">My key skills</a></li>
-                <li><a href="contact.html" class="nav-link text-white' hover:text-white font-medium">Contact</a></li>
+                        <li><a href="index.html" class="nav-link text-white hover:text-white font-medium">Home</a></li>
+                        <li><a href="#about" class="nav-link text-white hover:text-white font-medium">About</a></li> 
+                        <li><a href="gallery.html" class="nav-link text-white hover:text-white font-medium">Gallery</a></li>
+                        <li><a href="#skills" class="nav-link text-white hover:text-white font-medium">My key skills</a></li>
+                        <li><a href="contact.html" class="nav-link text-white hover:text-white font-medium">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -983,7 +1076,7 @@ Administrator, Mentor & Community Advocate
             
             // Auto-play
             setInterval(() => {
-                currentSlide = (currentSlide + 1) % 4;
+                currentSlide = (currentSlide + 1) % 3;
                 updateAboutCarousel();
             }, 5000);
         }
@@ -1026,12 +1119,12 @@ Administrator, Mentor & Community Advocate
                 const fullText = this.getAttribute('data-full-text');
                 const textElement = this.previousElementSibling;
                 
-                if (this.textContent === 'Read More') {
+                if (this.textContent.includes('Read More')) {
                     textElement.textContent = fullText;
-                    this.textContent = 'Read Less';
+                    this.textContent = 'Read Less ←';
                 } else {
                     textElement.textContent = fullText.substring(0, 150) + '...';
-                    this.textContent = 'Read More';
+                    this.textContent = 'Read More →';
                 }
             });
         });
