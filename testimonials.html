@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semiu Musa Bello, PhD - Media & Health Communication Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+        }
+        
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Enhanced Skill Card Animation */
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+        
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+        .skill-card:nth-child(7) { animation-delay: 0.7s; }
+        .skill-card:nth-child(8) { animation-delay: 0.8s; }
+        .skill-card:nth-child(9) { animation-delay: 0.9s; }
+        .skill-card:nth-child(10) { animation-delay: 1s; }
+        .skill-card:nth-child(11) { animation-delay: 1.1s; }
+        .skill-card:nth-child(12) { animation-delay: 1.2s; }
+        .skill-card:nth-child(13) { animation-delay: 1.3s; }
+        .skill-card:nth-child(14) { animation-delay: 1.4s; }
+        .skill-card:nth-child(15) { animation-delay: 1.5s; }
+        
+        .skill-card:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .skill-card:hover i {
+            color: white;
+        }
+        
+        .skill-card:hover h3,
+        .skill-card:hover h4 {
+            color: white;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3b82f6;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* Enhanced Testimonial Card Design */
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: visible;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: initial;
+            top: -30px;
+            left: 30px;
+            font-size: 150px;
+            color: #3b82f6;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+            margin-right: 1rem;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-info p {
+            font-size: 0.9rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        
+        .testimonial-text {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .read-more-btn {
+            color: #3b82f6;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0.5rem 0;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .read-more-btn:hover {
+            color: #1e3a8a;
+        }
+        
+        .testimonial-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-carousel-btn:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .search-bar {
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus {
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .counter {
+                font-size: 2rem;
+            }
+            
+            .search-bar:focus {
+                width: 200px;
+            }
+            
+            .testimonial-card {
+                min-height: 300px;
+            }
+            
+            .testimonial-carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-900 to-blue-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">SMB</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Dr. Semiu Musa Bello</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 font-medium">My key skills</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                    <input type="search" placeholder="Search..." class="search-bar px-4 py-2 border border-gray-300 rounded-full focus:outline-none w-40">
+                </div>
+                
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="hidden md:hidden mt-4" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 font-medium">My key skills</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                    <input type="search" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-full focus:outline-none">
+                </div>
+            </div>
+        </nav>
+    </header>
+<section id="testimonials" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-green-700 text-center mb-12">
+      Testimonials & Compliments
+    </h2>
+
+
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-blue-600 font-serif">“</span>
+              Dr. Semiu, has overtime, proven to so many people he is passionate and enthusiastic about his job( lecturing, mentoring and researching). I was privileged to be supervised by him in my M.Sc dissertation at Olabisi Onabanjo University, Nigeria and it has been the best part of my academic journey in life. He is an excellent researcher, despite being approachable, he doesn't give room for mediocrity. It is either perfectly done or not approved."
+Abiodun Eleshinloye
+Lagos, Nigeria.
+I have known Dr. Bello for almost 20 years, first as my student and now as a colleague and co-researcher in media and communication scholarship. Dr. Bello has acquired considerable experiences and possesses requisite skills, insights, culture and competences in teaching, research, mentoring, and administrative tasks in the field of mass communication in Nigeria and abroad. He has consistently published in credible local and international journals across the field of mass communication.
+These competencies and his proven scholarship have definitely prepared Dr. Bello for the challenges involved in academic leadership.
+              <span class="text-3xl text-blue-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/prof_lai.png" alt="Prof. Lai Oso" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Prof. Lai Oso</h3>
+                <p class="text-sm text-gray-500">
+                  Former Dean, School of Communication, Lagos State University, Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+<br>
+        <!-- Add similar blocks for other testimonials -->
+        <!-- Example 2 -->
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+              Semiu was my research student at the University of Canterbury. He was a good scholar who always met every deadline I set – often beforehand! The result of his work at Canterbury was a cogent, analytical piece of research, which is now a strong addition to the literature in this field. While working toward his PhD degree, Semiu has also published several articles and book chapters. This was an impressive level of output for someone at this stage of development. He has always been a dedicated academic scholar. I have seen his previous research questions turn to new ones and I have witnessed his appetite for research continues to grow.
+As a teacher, Semiu was very adept at Canterbury. I knew he already had teaching experience but I was impressed with his interpersonal skills and his ability to connect with our undergraduate students. He ran two of the tutorial sessions for our large introductory class and was adept at handling the many issues that arose during any semester. Semiu’s skills are extensive. He is extremely organized and an efficient worker. He is entirely self-motivated with high personal standards. He is a creative, intelligent, goal-oriented person and has proven himself to be a strong teacher. He works well with others and is eager to contribute
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/prof_linda.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Prof. Linda Jean Kenix</h3>
+                <p class="text-sm text-gray-500">
+                  Head of School, School of Language, Politics and Communication, University of Canterbury, New Zealand.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+             I have known Dr. Bello for over 20 years, since his secondary school days as well as an undergraduate trainee in Mass Communication and presently a research colleague. Dr. Bello has demonstrated an impressive academic career over the years. The manifestations could be read convincingly in his efforts moving through all stages of communication training alongside management.
+This energetic academic and prolific writer in respect of research articles have dedicated and committed himself to enhancing development of humanity through novel contributions to advance the disciplines of communication and journalism in Nigeria. During his postgraduate master’s training, Dr Bello worked with me on research projects relating to health development and application of communications skill and technology to prevent diseases burden, especially malaria. He is noted for building capacity in students with diligence and high level discipline, preparing them for future challenges. The weakness in this young man is that he works so hard that he forgoes most often his due breaks or holidays until he accomplishes on assignments given to him” 
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/prof_adedeji.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Professor A. A. Adedeji</h3>
+                <p class="text-sm text-gray-500">
+                  Department of Pharmacology, Olabisi Onabanjo University Nigeria
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+             That I have known Dr. Semiu Musa Bello from his undergraduate days as my student and later as a colleague when I was Acting Head of the Mass Communication Department, Olabisi Onabanjo University and till date as a professional colleague. That Dr. Semiu Musa Bello is an ardours and intelligent scholar with an insatiable appetite and quest for knowledge and research.That Dr. Semiu Musa Bello is a scholar for high integrity who has been and continues to be an invaluable asset in the Department of Mass Communication. 
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/dele.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Associate Professor Dele Odunlami</h3>
+                <p class="text-sm text-gray-500">
+                  Department of Mass Communication, Olabisi Onabanjo University, Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+             Dr Semiu Bello: An Angel or a Mortal?
+I have been a friend and colleague of Dr Semiu Bello for over two decades. He has his eyes fixed on the stars through his slogan “the sky is the beginning”. With the vision tagged: “Boldstep to Prof.”, Dr Bello draws the blueprint of his academic sojourn right from childhood and pursued it with great zeal.
+As a colleague, I can attest to the research prowess of Dr Bello as his research articles numbering over 45 have been published in local and international journals. He is grounded in both qualitative and quantitative research methods. He is well noted for his painstaking efforts in turning up quality research articles at given deadlines.
+I am one of the beneficiaries of his mentorship efforts which he has always conducted with passion.
+Everywhere he goes, he mentors budding and senior researchers and just like numerous people in and outside Nigeria, my success story will not be complete without a mention of his tutelage.
+Dr Bello has this “monitoring spirit”, pursuing you with vigour and adopting alluring techniques for you to aim for the stars just as he has done to himself. The manifestation of this is evidence in the success of my academic session.
+The scholar lives by example who sacrifices his time, energy and resources to add value to the lives of others. He has this magical touch on the lives of people who are around him. He benefits his friends and return bad deeds with good ones. He is loved by his foes and it has become a tradition for people to cry when he is taking up new challenges and had to say good bye in any organisation or institution he had found himself in the past.
+If an organisation is at its low, the turnaround will definitely be witnessed with the coming on board of Dr Bello. If an organisation seems to be at its optimum, when Dr Bello joins, it will almost get to a stage of utopia. In all higher institutions, groups and organisations he was engaged in the past, his name is written in gold.
+While I look forward to seeing more of his intervention in the area of his expertise “Health Communication”, Dr Bello to me, is an angel in the body of man. I mean every bit of statement I made here. 
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/Jamiu_folarin.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Jamiu Folarin</h3>
+                <p class="text-sm text-gray-500">
+                  Crescent University, Nigeria & Dubawa Research Fellow on Fact-Checking by Premium Times, Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+             Dr Semiu Musa Bello is an accomplished academic and complete package and you will be proud to have a conscientious, diligent and dedicated honest personality whenever you have a contact and contract with him.
+Dr Musa Semiu Bello is an astute academic and professional mass communication expert. He has worked tremendously and untiring on his research while always making himself available to mentor and assist others in career advancement.
+Dr Semiu has a knack for and uncanny knowledge and understanding of public relations, mass communication, journalism and health sciences.
+Dr Bello has shown ability to identify research gaps and demonstrated how to solve same. As his mentee of over ten years, I implore you to reckon with Dr Bello's professional skills on his total person, not just on his impressive professional record. He is a 'complete package' and you will be proud to have a conscientious, diligent and dedicated honest character in any form of engagement with him. 
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/adegboyega.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Adegboyega T. T., PhD</h3>
+                <p class="text-sm text-gray-500">
+                  Genetic Resources Center, International Institute of Tropical Agriculture (IITA),Ibadan,Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+             Dr. Semiu, has overtime, proven to so many people he is passionate and enthusiastic about his job which covers lecturing, mentoring and researching.
+I was privileged to be supervised by him in my M.Sc dissertation at Olabisi Onabanjo University, Nigeria and it has been the best part of my academic journey in life.
+He is an excellent researcher, despite being approachable, he doesn't give room for mediocrity. It is either perfectly done or not approved.
+A very attentive and engaging man who goes above and beyond to ensure his student(s) is well equipped with journals and every necessary resources needed for the success of project work.
+Am yet to come across such a humble being with a faultless character who treats people equally with no preference.
+In all of my years of knowing Dr.Semiu, I am of the opinion that, he is a research enthusiast, a kind, understanding, supportive, detail-oriented, success griller, a good public speaker , an optimist and a passionate leader. Am super grateful we cross path in life.
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/abiodun.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Abiodun Eleshinloye</h3>
+                <p class="text-sm text-gray-500">
+                  Lagos, Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+              I have known Dr. Semiu Bello for 10 years. He is an erudite scholar and very diligent at what he does. My interaction with him cuts across both scholarship and professional development. He has been a mentor to many younger scholars, some of who are shining brightly in their chosen field. As a co-author, I have also benefited from his contributions, largely in the areas of conceptualisation. As a Post Graduate Coordinator, Dr. Bello mentored many of the postgraduate students particularly in the areas of conducting meaningful research that would impact society. Dr. Bello is amiable and always willing to help.
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/oludare_ogunyombo.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Oludare Ogunyombo, PhD.</h3>
+                <p class="text-sm text-gray-500">
+                  Associate Director Brooks and Blake Nigeria limited, Lagos, Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+               Dr. Semiu Musa Bello is a highly intelligent and versatile schorlar with good problem-solving skills, coupled with his sound Emotional Intelligence and Intellectual Quotient.
+He has been known to me for about 23 years now; firstly as a course mate and later as a Mentor and Advisor.
+He is an academic of note, researcher of high intellectual fecundity and scholar of international repute, embroidered with unblemished character.
+Dr. Bello, who is a front line researcher, has engaged in various first class demonstrations in the field of Communication, where he is an expert and this has earned him scholarships and accolades both at home and abroad.
+It should be noted that his overall intelligence and sagacity reflects in the outstanding performances of both his students and mentees at various strata of the academia. 
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/bakenne_nuraen.png alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Nureni Bakenne</h3>
+                <p class="text-sm text-gray-500">
+                  Public Relations Expert, Journalist and Seasoned Broadcaster. Tai Solarin University of Education, Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+               I have known Dr Semiu Musa Bello and have been relating harmoniously with him as a colleague in the same Department for about a decade now. I know Dr Bello as hardworking with penchant for details on any task and an achiever in every sense of the word. He is very thorough, articulate, focussed, of high discipline and moral values, serious minded and result oriented. As an achiever, he often meets his set targets. In line with the requirements in the academia, Dr Bello has a mastery of his teaching subjects-a quality that endears him more to his students. Furthermore, Dr Bello is skilful, diligent and comfortable in conducting research. In this regard, he has publications in high impact journals to his credit. He is also committed to community service.
+Dr Bello is a team player who works excellently with others and is often the leader and the pathfinder in each team he finds himself. He often charts the course in any project he is involved in, a good teacher and a mentor to his students. He is innovative, resilient, accommodating, attentive and sensitive to student’s needs. Dr Bello is a great influencer an institution would proudly recruit and retain.
+I strongly associate with him. 
+              <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/lekan.png" alt=Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Dr Olalekan Rufai</h3>
+                <p class="text-sm text-gray-500">
+                  Department of Mass Communication, Olabisi Obasanjo University, Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="swiper-slide flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <p class="text-gray-700 italic text-justify leading-relaxed">
+              <span class="text-3xl text-green-600 font-serif">“</span>
+               I have established and enjoyed association with Dr. Bello Semiu for over 15 years. He was first my student at the Olabisi Onabanjo University, Nigeria but due to his impeccable academic excellence and diligence, we later became colleagues in the same university.
+We further became co-PhD candidates at the University of Canterbury in New Zealand. Dr. Semiu is a matured, diligent man with a research ability of over 45 publications in academic journals both nationally and internationally.
+He is also a kind-hearted person, supportive and a natural mentor for others. A testimony of this was his influence in encouraging and supporting 3 other colleagues to pursue their Doctorate Degree alongside himself at the University of Canterbury, New Zealand.
+He is an experienced teacher, a seasoned researcher and well-travelled. He is also a dedicated father and husband.
+Kindly accord him all necessary support and engagement.
+     <span class="text-3xl text-green-600 font-serif">”</span>
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+              <img src="https://semiubello.com/images/indiv/morenike2.png" alt="Linda Kenix" class="w-20 h-20 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-gray-900">Morenike Oladeinde, PhD.</h3>
+                <p class="text-sm text-gray-500">
+                  Christchurch, New Zealand.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+    <footer class="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-blue-900 font-bold text-xl">SMB</span>
+                        </div>
+                        <span class="text-xl font-bold">Dr. Semiu Bello</span>
+                    </div>
+                    <p class="text-blue-100">Seasoned Media & Health Communication Researcher and Consultant</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="nav-link text-white hover:text-white font-medium">Home</a></li>
+                        <li><a href="#about" class="nav-link text-white hover:text-white font-medium">About</a></li> 
+                        <li><a href="gallery.html" class="nav-link text-white hover:text-white font-medium">Gallery</a></li>
+                        <li><a href="#skills" class="nav-link text-white hover:text-white font-medium">My key skills</a></li>
+                        <li><a href="contact.html" class="nav-link text-white hover:text-white font-medium">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>semiuolabello@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3"></i>
+                            <span>+234 803 046 6019</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Department of Mass Communication Faculty of Information & Communication Technology Kwara State University Malete via Ilorin Nigeria</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-white hover:text-blue-900 transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-700 mt-12 pt-8 text-center text-blue-100">
+                <p>© 2025 SemiuBello.com Design by TemiTech</p>
+            </div>
+        </div>
+    </footer>
